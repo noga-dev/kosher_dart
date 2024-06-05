@@ -15,12 +15,12 @@
  */
 import 'dart:core';
 
-import 'package:kosher_dart/src/zmanim_calendar.dart';
-import 'package:kosher_dart/src/util/geo_location.dart';
 import 'package:kosher_dart/src/astronomical_calendar.dart';
+import 'package:kosher_dart/src/hebrewcalendar/jewish_calendar.dart';
 import 'package:kosher_dart/src/hebrewcalendar/jewish_date.dart';
 import 'package:kosher_dart/src/util/astronomical_calculator.dart';
-import 'package:kosher_dart/src/hebrewcalendar/jewish_calendar.dart';
+import 'package:kosher_dart/src/util/geo_location.dart';
+import 'package:kosher_dart/src/zmanim_calendar.dart';
 
 /// <p>This class extends ZmanimCalendar and provides many more zmanim than available in the ZmanimCalendar. The basis for
 /// most zmanim in this class are from the _sefer_ <b><a href="http://hebrewbooks.org/9765">Yisroel Vehazmanim</a></b>
@@ -3387,9 +3387,7 @@ class ComplexZmanimCalendar extends ZmanimCalendar {
     if (isAshkenaz) {
       return getMisheyakir10Point2Degrees();
     } else {
-      return getAlosHashachar() == null
-          ? null
-          : getAlosHashachar()!.add(const Duration(minutes: 6));
+      return getAlosHashachar()?.add(const Duration(minutes: 6));
     }
   }
 
